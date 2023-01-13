@@ -1,1 +1,1 @@
-## GitActions and Terrform
+## GitActions and Terraform
