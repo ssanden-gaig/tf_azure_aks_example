@@ -17,7 +17,7 @@ resource "azurerm_resource_group" "storage_rg" {
 
 resource "azurerm_storage_account" "storage_acct" {
   location                 = azurerm_resource_group.storage_rg.location
-  name                     = join("",["thisismytfzuretest",substr("${random_uuid.test.result}",0,8)])
+  name                     = join("",["mystaccttf",substr("${random_uuid.test.result}",0,8)])
   account_tier             = "Standard"
   account_replication_type = "LRS"
   resource_group_name      = azurerm_resource_group.storage_rg.name
