@@ -1,6 +1,6 @@
-# provider "azurerm" {
-#   features {}
-# }
+provider "azurerm" {
+  features {}
+}
 
 resource "random_uuid" "test" {}
 

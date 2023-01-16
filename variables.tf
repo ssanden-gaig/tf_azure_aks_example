@@ -7,6 +7,7 @@ variable "location" {
 variable "storage_acct_name" {
   type        = string
   description = "The storage account for our stuff"
+  default = "jhsdjhsdjhsdjhsdjhsdjh"
 }
 
 variable "container_name" {
