@@ -6,7 +6,7 @@ resource "random_uuid" "test" {}
 
 locals {
   containers     = ["mydocs", "mycode", "mypics"]
-  resource_group = "${random_uuid.test.result}-rg"
+  resource_group = "rg-${random_uuid.test.result}"
 }
 
 resource "azurerm_resource_group" "storage_rg" {
@@ -16,7 +16,7 @@ resource "azurerm_resource_group" "storage_rg" {
 
 resource "azurerm_storage_account" "storage_acct" {
   location                 = azurerm_resource_group.storage_rg.location
-  name                     = var.storage_acct_name
+  name                     = join("",["thisismytfzuretest",substr("${random_uuid.test.result}",0,8)])
   account_tier             = "Standard"
   account_replication_type = "LRS"
   resource_group_name      = azurerm_resource_group.storage_rg.name
