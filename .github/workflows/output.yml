@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output Github Info
-        run: echo ${{ toJson(github)}}
+        run: echo "${{ toJson(github)}}"
     
