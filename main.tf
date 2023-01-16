@@ -2,6 +2,7 @@ provider "azurerm" {
   features {}
 }
 
+## Added comment
 resource "random_uuid" "test" {}
 
 locals {
