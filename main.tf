@@ -1,7 +1,6 @@
-
-provider "azurerm" {
-  features {}
-}
+# provider "azurerm" {
+#   features {}
+# }
 
 resource "random_uuid" "test" {}
 
@@ -9,7 +8,6 @@ locals {
   containers     = ["mydocs", "mycode", "mypics"]
   resource_group = "${random_uuid.test.result}-rg"
 }
-
 
 resource "azurerm_resource_group" "storage_rg" {
   location = var.location
