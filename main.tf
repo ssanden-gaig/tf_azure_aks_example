@@ -15,7 +15,7 @@ resource "azurerm_resource_group" "storage_resource_group" {
   name     = local.resource_group
 }
 
-
+## Add some comments here
 module "storage_account" {
   source = "git::https://github.com/ssanden-gaig/tf-azure-modules.git//storage"
 
