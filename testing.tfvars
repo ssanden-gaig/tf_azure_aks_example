@@ -1,3 +1,7 @@
+
+
+
+
 ## Vars file
-account_name="ztestacctname909090"
+storage_account_name="ztestacctname909090"
 container_name="mydocs"

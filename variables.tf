@@ -1,17 +1,20 @@
-# variable "location" {
-#   type        = string
-#   description = "The primary location for our resources"
-#   default     = "eastus2"
-# }
+variable "location" {
+  type        = string
+  description = "The primary location for our resources"
+  default     = "eastus2"
+}
 
-# variable "storage_acct_name" {
-#   type        = string
-#   description = "The storage account for our stuff"
-#   default = "jhsdjhsdjhsdjhsdjhsdjh"
-# }
+variable "storage_account_name" {
+  type        = string
+  description = "The azure storage account name"
+}
 
-# variable "container_name" {
-#   type        = string
-#   description = "The container name"
-#   default     = "mydocs"
-# }
+variable "container_name" {
+  type        = string
+  description = "The container name"
+}
+variable "resource_group_name" {
+  type = string
+  default = "az-rg"
+  nullable=false
+}
