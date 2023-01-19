@@ -53,6 +53,12 @@ on:
      types:
         - closed
 
+env:
+  TF_VARS_account_name: "tfstuffforautomation67"
+  TF_VARS_container_name:  "testcontainer"
+
+
+
 permissions:
   contents: read
 

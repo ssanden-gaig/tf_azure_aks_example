@@ -6,7 +6,7 @@ provider "azurerm" {
 resource "random_uuid" "test" {}
 
 locals {
-  containers     = ["mydocs", "mycode", "mypics"]
+  #containers     = ["mydocs", "mycode", "mypics"]
   resource_group = "rg-${random_uuid.test.result}"
 }
 
@@ -15,18 +15,23 @@ resource "azurerm_resource_group" "storage_rg" {
   name     = local.resource_group
 }
 
-resource "azurerm_storage_account" "storage_acct" {
-  location                 = azurerm_resource_group.storage_rg.location
-  name                     = join("",["mystaccttf",substr("${random_uuid.test.result}",0,8)])
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  resource_group_name      = azurerm_resource_group.storage_rg.name
+
+module "storage_account" {
+  source = "git::https://github.com/ssanden-gaig/tf-azure-modules.git//storage"
 }
 
-resource "azurerm_storage_container" "storage_container" {
-  for_each = toset(local.containers)
+# resource "azurerm_storage_account" "storage_acct" {
+#   location                 = azurerm_resource_group.storage_rg.location
+#   name                     = join("",["mystaccttf",substr("${random_uuid.test.result}",0,8)])
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
+#   resource_group_name      = azurerm_resource_group.storage_rg.name
+# }
 
-  storage_account_name = azurerm_storage_account.storage_acct.name
-  name                 = each.value
+# resource "azurerm_storage_container" "storage_container" {
+#   for_each = toset(local.containers)
 
-}
+#   storage_account_name = azurerm_storage_account.storage_acct.name
+#   name                 = each.value
+
+# }
