@@ -20,7 +20,7 @@ module "storage_account" {
   source = "git::https://github.com/ssanden-gaig/tf-azure-modules.git//storage"
 
   resource_group_name = azurerm_resource_group.storage_resource_group.name 
-  storage_account_name=var.storage_account_name
+  account_name=var.storage_account_name
   container_name=var.container_name
 }
 
